@@ -18,7 +18,7 @@
 #define GPIO_PORTD              ((volatile uint32_t *)0x4005B000) // 7 segment display
 #define GPIO_PORTE              ((volatile uint32_t *)0x4005C000) // 7 segment display control
 #define GPIO_PORTJ              ((volatile uint32_t *)0x40060000) // 7 segment display 2 control
-#define GPIO_PORTL              ((volatile uint32_t *)0x40062000) // 7 segment display 2
+#define GPIO_PORTK              ((volatile uint32_t *)0x40061000) // 7 segment display 2 (port K)
 #define GPIO_PORTH              ((volatile uint32_t *)0x4005F000) // keypad
 #define GPIO_PORTC              ((volatile uint32_t *)0x4005A000) // keypad
 
