@@ -1,3 +1,4 @@
+// fsm.c (updated to use direct registers, their keypad, polled timer)
 #include "fsm.h"
 #include "lock.h"
 #include "display.h"
