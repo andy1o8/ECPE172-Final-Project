@@ -6,7 +6,7 @@
 #include "sysctl.h"
 #include "gpio.h"
 
-SysCtlClockSet_120MHz();
+void SysCtlClockSet_120MHz(void);
 
 void Hardware_Init(void) {
     // Set system clock if needed (assuming osc.h sets it to 120 MHz; otherwise add PLL config)

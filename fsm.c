@@ -34,6 +34,7 @@ void FSM_Init(void) {
 }
 
 void FSM_Run(void) {
+    /* ------------------- KEYPAD INPUT (only in IDLE) ------------------- */
     if (lock_state == STATE_IDLE && digits_entered < 4) {
         uint8_t col, row;
         if (debouncing) {
@@ -46,10 +47,13 @@ void FSM_Run(void) {
                     if (k >= '0' && k <= '9' && (k - '0') == pending_key) {
                         // Accept
                         code_buffer[digits_entered++] = pending_key;
-                        for (uint8_t i = digits_entered; i < 4; ++i)
+                        uint8_t i = digits_entered;
+                        for (i = digits_entered; i < 4; ++i) {
                             code_buffer[i] = 10;  // Blank
-                        if (digits_entered == 4)
+                        }
+                        if (digits_entered == 4) {
                             lock_state = STATE_CHECK_CODE;
+                        }
                     }
                 }
                 debouncing = false;
@@ -67,6 +71,7 @@ void FSM_Run(void) {
         }
     }
 
+    /* -------------------------- FSM -------------------------- */
     switch (lock_state) {
 
         case STATE_IDLE:
@@ -74,7 +79,10 @@ void FSM_Run(void) {
 
         case STATE_CHECK_CODE:
             if (!password_is_set) {
-                for (int i = 0; i < 4; ++i) stored_password[i] = code_buffer[i];
+                int i = 0;
+                for (i = 0; i < 4; ++i) {
+                    stored_password[i] = code_buffer[i];
+                }
                 password_is_set = true;
                 Display_Clear();
                 lock_state = STATE_IDLE;

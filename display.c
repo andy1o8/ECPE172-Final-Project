@@ -113,7 +113,8 @@ void Display_Update(void) {
 }
 
 void Display_Clear(void) {
-    for (uint8_t i = 0; i < 4; ++i) {
+    uint8_t i = 0;
+    for (i = 0; i < 4; ++i) {
         code_buffer[i] = 10;  // Blank
     }
     digits_entered = 0;

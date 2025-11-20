@@ -1,0 +1,10 @@
+"./display.obj"
+"./fsm.obj"
+"./init.obj"
+"./keypad.obj"
+"./led7seg.obj"
+"./main.obj"
+"./timer.obj"
+"./tm4c129cncpdt_startup_ccs.obj"
+"../tm4c129cncpdt.cmd"
+-llibc.a

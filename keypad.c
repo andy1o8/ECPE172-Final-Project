@@ -51,7 +51,8 @@ bool getKey( uint8_t *col, uint8_t *row ) {
   }
 
   // Determine column number
-  for (uint8_t i = 0; i < 4; i++) {
+  uint8_t i = 0;
+  for (i = 0; i < 4; i++) {
     if (!(GPIO_PORTH[GPIO_PIN_0 << i])) {
       *col = i;
       keyWasPressed = true;
